@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div className="App">
+    
         <Layout_content
          setCards={setCards}
         cards = {cards}
