@@ -75,6 +75,7 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
              <div className="card_input"> <button onClick={submitHandler} className="button-3" type="submit" >Add</button></div>
             
             </SubMenu>
+           
             
         
           </Menu>
@@ -93,6 +94,8 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
 
     )
 }
+
+
 
 export default Layout_content;
 
