@@ -125,3 +125,30 @@ margin:10px;
   grid-colum-gap: 10px;
   grid-row-gap:10px;
 }
+
+
+table {
+  display: flex;
+  justify-content: center;
+  border: 1px solid gray;
+  margin: 5vh;
+}
+
+td {
+  border: 1px solid gray;
+  width: 30em;
+}
+
+.Student-Overview {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Table-Header {
+  background-color: #96bb7c;
+}
+
+.radio {
+  margin : 0 0 0 30px;
+}
