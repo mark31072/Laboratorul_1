@@ -4,7 +4,11 @@ import { Layout, Menu,  } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
+
+import {card$} from '../mst/stores/Cardbox.store'
+
+
 
 
 const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) =>{
@@ -14,28 +18,9 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
     const [inputAge, setInputAge] = useState("");
     const [inputText, setInputText] = useState("");
  
-
-
-    const inputNametHandler = (e:React.ChangeEvent<HTMLInputElement>):void =>{
-      setInputName(e.target.value);
-    };
-    const inputUniversityHandler = (e:React.ChangeEvent<HTMLInputElement>):void =>{
-      setInputUniversity(e.target.value);
-    };
-    const inputAgeHandler = (e:React.ChangeEvent<HTMLInputElement>):void =>{
-      setInputAge(e.target.value);
-    };
-    const inputTextHandler = (e:React.ChangeEvent<HTMLInputElement>):void =>{
-      setInputText(e.target.value);
-    };
-
     const submitHandler = (e:React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>):void =>{
       e.preventDefault();
-      
-      setCards([
-          ...cards,
-          {title:inputName, univerity:inputUniversity, age: inputAge, text: inputText}
-      ]);
+      card$.addCard(inputName,inputUniversity,inputAge,inputText )
       
       setInputName("");
       setInputUniversity("");
@@ -68,10 +53,10 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
         
           >
            <SubMenu key="sub1" icon={<UserOutlined />} title="Add new card:">
-             <div className="card_input"><input className='input_field' value={inputName} onChange={inputNametHandler} placeholder="Nume/prenume"  type="text" /></div>
-             <div className="card_input"><input className='input_field' value={inputUniversity} onChange={inputUniversityHandler} placeholder="Universitate"  type="text" /></div>
-             <div className="card_input"><input className='input_field' value={inputAge} onChange={inputAgeHandler} placeholder="Varsta"  type="text" /></div>
-             <div className="card_input"><input className='input_field' value={inputText} onChange={inputTextHandler} placeholder="Text"  type="text" /></div>
+             <div className="card_input"><input className='input_field' value={inputName} onChange={(e)=> {setInputName(e.target.value);}} placeholder="Nume/prenume"  type="text" /></div>
+             <div className="card_input"><input className='input_field' value={inputUniversity} onChange={(e)=> {setInputUniversity(e.target.value);}} placeholder="Universitate"  type="text" /></div>
+             <div className="card_input"><input className='input_field' value={inputAge} onChange={(e)=> {setInputAge(e.target.value);}} placeholder="Varsta"  type="text" /></div>
+             <div className="card_input"><input className='input_field' value={inputText} onChange={(e)=> {setInputText(e.target.value);}} placeholder="Text"  type="text" /></div>
              <div className="card_input"> <button onClick={submitHandler} className="button-3" type="submit" >Add</button></div>
             
             </SubMenu>

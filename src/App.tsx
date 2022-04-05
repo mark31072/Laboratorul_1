@@ -21,6 +21,14 @@ const homeStudent = [
     age:21,
     univerity: "UTM",
     speciality:"CR",
+  },
+  {
+    firstName: "Marin",
+    secondName:"Pesterean",
+    gender:"male",
+    age:21,
+    univerity: "UTM",
+    speciality:"CR",
   }
 
 ]
