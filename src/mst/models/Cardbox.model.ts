@@ -3,6 +3,7 @@ import { Instance, types } from "mobx-state-tree";
 
 export const card = types
     .model({
+        id:types.number,
         name: types.optional(types.string, ""),
         university:types.optional(types.string, ""),
         age: types.optional(types.string, ""),

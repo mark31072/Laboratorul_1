@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Card_box from './Card_box';
 import { Layout, Menu,  } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
@@ -11,7 +11,7 @@ import {card$} from '../mst/stores/Cardbox.store'
 
 
 
-const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) =>{
+const Layout_content = () =>{
     
     const [inputName, setInputName] = useState("");
     const [inputUniversity, setInputUniversity] = useState("");
@@ -20,7 +20,7 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
  
     const submitHandler = (e:React.MouseEvent<HTMLButtonElement> | React.ChangeEvent<HTMLInputElement>):void =>{
       e.preventDefault();
-      card$.addCard(inputName,inputUniversity,inputAge,inputText )
+      card$.addCard(Math.random()*1000,inputName,inputUniversity,inputAge,inputText )
       
       setInputName("");
       setInputUniversity("");
@@ -28,6 +28,36 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
       setInputText("");
       
   };
+  
+  // it's calls once
+useEffect( () => {
+  console.log("what")
+  getLocalTodos();
+},[])
+
+
+  // it's calls every time than component
+useEffect( () => {
+  
+  saveLocalTodos();
+}, [submitHandler])
+
+
+const saveLocalTodos = () => {
+  localStorage.setItem("Cards",JSON.stringify(card$.cards));
+  
+};
+
+const getLocalTodos = () => {
+if(localStorage.getItem("Cards") === null){
+  localStorage.setItem("Cards", JSON.stringify([]))
+}else{
+  let cardLocal =  JSON.parse(localStorage.getItem("Cards")|| "")
+  
+  card$.addLocal(cardLocal)
+}
+};
+
 
     return(
         <Layout>
@@ -60,21 +90,16 @@ const Layout_content = ({setCards, cards}:{setCards:any, cards:Array<string> }) 
              <div className="card_input"> <button onClick={submitHandler} className="button-3" type="submit" >Add</button></div>
             
             </SubMenu>
-           
-            
-        
           </Menu>
         </Sider>
         <Content style={{ padding: '0 24px', minHeight: 280 }}>
-    
-         <Card_box
-         cards = {cards}
-         />
 
+         <Card_box
+         />
+         
         </Content>
       </Layout>
     </Content>
-   
   </Layout>
 
     )

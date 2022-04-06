@@ -34,18 +34,13 @@ const homeStudent = [
 ]
 
 
+
 function App() {
 
-    const [cards, setCards] = useState([]);
-    const [student, setStudent] = useState([]);
-    
+
   return (
     <div className="App">
-        <Layout_content
-         setCards={setCards}
-        cards = {cards}
-        />
-
+        <Layout_content/>
         <StudenOverview 
        
         students = {homeStudent}
