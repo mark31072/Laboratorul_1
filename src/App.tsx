@@ -21,23 +21,26 @@ const homeStudent = [
     age:21,
     univerity: "UTM",
     speciality:"CR",
+  },
+  {
+    firstName: "Marin",
+    secondName:"Pesterean",
+    gender:"male",
+    age:21,
+    univerity: "UTM",
+    speciality:"CR",
   }
 
 ]
 
 
+
 function App() {
 
-    const [cards, setCards] = useState([]);
-    const [student, setStudent] = useState([]);
-    
+
   return (
     <div className="App">
-        <Layout_content
-         setCards={setCards}
-        cards = {cards}
-        />
-
+        <Layout_content/>
         <StudenOverview 
        
         students = {homeStudent}
