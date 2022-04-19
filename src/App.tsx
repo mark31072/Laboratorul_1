@@ -1,55 +1,22 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import Layout_content from "./components/Layout_content"
-import {StudenOverview} from "./components/StudenOverview"
-
-
-const homeStudent = [
-  {
-    firstName: "Marin",
-    secondName:"Pesterean",
-    gender:"male",
-    age:21,
-    univerity: "UTM",
-    speciality:"CR",
-  },
-  {
-    firstName: "Marin",
-    secondName:"Pesterean",
-    gender:"male",
-    age:21,
-    univerity: "UTM",
-    speciality:"CR",
-  },
-  {
-    firstName: "Marin",
-    secondName:"Pesterean",
-    gender:"male",
-    age:21,
-    univerity: "UTM",
-    speciality:"CR",
-  }
-
-]
+import { HeaderLayout } from './components/HeaderLayout';
+import {ContentLayout} from './components/Content_layout'
+import { Layout } from 'antd';
+import { card$ } from './mst/stores/Cardbox.store';
 
 
 
 function App() {
-
+ 
 
   return (
     <div className="App">
-        <Layout_content/>
-        <StudenOverview 
-       
-        students = {homeStudent}
-        
-        />
-
-
-
-
+      <Layout className='layout'>
+      <HeaderLayout/>
+      <ContentLayout/>
+      </Layout>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import {card$} from '../mst/stores/Cardbox.store'
 
 
 
-const Layout_content = () =>{
+const Card_content = () =>{
     
     const [inputName, setInputName] = useState("");
     const [inputUniversity, setInputUniversity] = useState("");
@@ -38,7 +38,7 @@ useEffect( () => {
 
   // it's calls every time than component
 useEffect( () => {
-  
+  console.log("why")
   saveLocalTodos();
 }, [submitHandler])
 
@@ -61,15 +61,7 @@ if(localStorage.getItem("Cards") === null){
 
     return(
         <Layout>
-    <Header className="header">
-      <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
-        
-      </Menu>
-    </Header>
+  
 
     <Content style={{ padding: '0 50px' }}>
 
@@ -107,5 +99,5 @@ if(localStorage.getItem("Cards") === null){
 
 
 
-export default Layout_content;
+export default Card_content;
 
