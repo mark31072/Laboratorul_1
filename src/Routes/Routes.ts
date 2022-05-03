@@ -1,6 +1,7 @@
 import { v4 as uuid } from 'uuid'
 
 export const ROUTES = [
+   
     {
         id: uuid(),
         path: '/home',
@@ -16,5 +17,6 @@ export const ROUTES = [
         path: '/interface',
         name: 'Interface'
     }
+    
 
 ]
